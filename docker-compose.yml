@@ -1,0 +1,13 @@
+services:
+  hosting:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: change-this-password
+      SECRET_KEY: change-this-secret-key
+    volumes:
+      - ./hosting-data:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
